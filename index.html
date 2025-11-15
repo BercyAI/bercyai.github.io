@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Bercy AI - Revolutionizing healthcare and finance with AI-driven solutions for enhanced data quality and intelligent decision support">
+    <meta name="keywords" content="AI, artificial intelligence, medical AI, financial AI, data quality, Hong Kong, machine learning, G-Knows, HealthMate, HealthPro, AgentTune Pro">
+    <title>Bercy AI - Redefining Intelligence in Oral Healthcare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            document.getElementById('newsletter').innerHTML = '<h1>Thank you for subscribing!</h1><p>We will contact you soon.</p>';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('header nav');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const body = document.body;
+            
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                body.classList.toggle('menu-open');
+            }
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', toggleMenu);
+            }
+            
+            if (navOverlay) {
+                navOverlay.addEventListener('click', toggleMenu);
+            }
+            
+            const navLinks = document.querySelectorAll('header nav a');
+            const sections = [];
+            
+            navLinks.forEach(link => {
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    sections.push({
+                        id: targetId,
+                        element: targetSection,
+                        link: link
+                    });
+                }
+                
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(navLink => {
+                        navLink.parentElement.classList.remove('current');
+                    });
+                    
+                    this.parentElement.classList.add('current');
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (nav.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        nav.classList.remove('active');
+                        navOverlay.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    }
+                }
+            });
+            
+            const header = document.querySelector('header');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 150;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.element.offsetTop;
+                    const sectionHeight = section.element.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                if (currentSection) {
+                    navLinks.forEach(link => {
+                        link.parentElement.classList.remove('current');
+                        if (link.getAttribute('href') === `#${currentSection}`) {
+                            link.parentElement.classList.add('current');
+                        }
+                    });
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Bercy</span> AI</h1>
+            </div>
+            <button class="menu-toggle" aria-label="打开菜单">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#showcase">Home</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-overlay"></div>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="showcase-content">
+                <h1>Transforming Oral Healthcare Through AI Excellence</h1>
+                <p>Powering next-generation decision support with our proprietary G-Knows platform, delivering unparalleled data quality and personalized insights</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn primary-btn">Explore Solutions</a>
+                    <a href="#contact" class="btn secondary-btn">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+        <style>
+            #showcase {
+                background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+        </style>
+    </section>
+
+    <section id="highlights">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Bercy AI</h2>
+                <p>Pioneering AI solutions that deliver measurable results</p>
+            </div>
+            <div class="highlights-container">
+                <div class="highlight-box">
+                    <i class="fas fa-heartbeat icon"></i>
+                    <h3>Healthcare Excellence</h3>
+                    <p>Delivering personalized medical insights with 90%+ accuracy for improved patient outcomes</p>
+                </div>
+                <div class="highlight-box">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Financial Intelligence</h3>
+                    <p>Empowering financial institutions with precise predictive analytics and risk assessment</p>
+                </div>
+                <div class="highlight-box">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>Ironclad Privacy</h3>
+                    <p>Advanced protection for sensitive data with HIPAA/GDPR compliance built into our core architecture</p>
+                </div>
+                <div class="highlight-box">
+                    <i class="fas fa-brain icon"></i>
+                    <h3>Proprietary AI</h3>
+                    <p>Cutting-edge multi-agent systems and knowledge graphs driving unprecedented performance</p>
+                </div>
+            </div>
+            <style>
+                .highlights-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 1.5rem;
+                    margin-top: 3rem;
+                }
+                
+                .highlight-box {
+                    flex: 1 1 calc(25% - 2rem);
+                    min-width: 250px;
+                    padding: 2rem;
+                    text-align: center;
+                    border-radius: 12px;
+                    background-color: #f8f9fa;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    border-top: 4px solid #0066cc;
+                }
+                
+                .highlight-box:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                }
+                
+                .highlight-box .icon {
+                    color: #0066cc;
+                    font-size: 2.5rem;
+                    margin-bottom: 1.5rem;
+                }
+                
+                .highlight-box h3 {
+                    margin-bottom: 1rem;
+                    font-size: 1.3rem;
+                }
+                
+                .highlight-box p {
+                    color: #666;
+                    font-size: 1rem;
+                    line-height: 1.6;
+                }
+                
+                @media (max-width: 768px) {
+                    .highlights-container {
+                        flex-wrap: wrap;
+                        overflow-x: visible;
+                        padding: 0.5rem 0 1.5rem;
+                        gap: 1.5rem;
+                        margin: 2rem 0 0;
+                        padding-left: 0;
+                        padding-right: 0;
+                        scroll-snap-type: none;
+                    }
+                    
+                    .highlight-box {
+                        flex: 0 0 100%;
+                        min-width: 100%;
+                        scroll-snap-align: unset;
+                        border-top-width: 3px;
+                    }
+                    
+                    .scroll-indicator {
+                        display: none;
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header left-aligned">
+                        <h2>Transforming Industries</h2>
+                        <p>Founded by leading experts from the University of Hong Kong</p>
+                    </div>
+                    <p>Bercy AI is pioneering the next generation of AI solutions for oral healthcare, addressing critical challenges of data quality, privacy, and decision support. Our platform combines advanced multi-agent systems with proprietary knowledge graph technology to deliver unmatched accuracy and personalization.</p>
+                    <p>With the backing of prestigious institutions and investors, we're positioned to capture significant market share in the rapidly expanding AI healthcare ($50B by 2025) and financial analytics ($11.4B by 2026) sectors.</p>
+                    <div class="about-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Evidence-based decision making</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Privacy-preserving architecture</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Seamless workflow integration</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Continuous learning capabilities</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="AI Technology and Humanity">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Technology</h2>
+                <p>The G-Knows Platform: Redefining AI capabilities</p>
+            </div>
+            <div class="solutions-content">
+                <div class="solution-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="G-Knows Platform">
+                    </div>
+                </div>
+                <div class="solution-features">
+                    <div class="feature">
+                        <i class="fas fa-brain"></i>
+                        <div class="feature-content">
+                            <h3>Multi-Agent Reasoning System</h3>
+                            <p>Collaborative AI agents work together to ensure reliable and robust decision-making with 87% higher accuracy than traditional systems</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-eye"></i>
+                        <div class="feature-content">
+                            <h3>Evidence-based Vision-Language Models</h3>
+                            <p>Advanced systems that integrate visual and textual data while maintaining privacy, improving diagnostic capabilities by 93%</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="feature-content">
+                            <h3>Knowledge GraphRAG Technology</h3>
+                            <p>Proprietary context-aware retrieval system providing personalized information with 76% better relevance than traditional RAG systems</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-cogs"></i>
+                        <div class="feature-content">
+                            <h3>Enhanced Multi-Modality Performance</h3>
+                            <p>Seamless integration of diverse data types, enabling holistic analysis and insights delivery across platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Product Suite</h2>
+                <p>AI-powered solutions for every need</p>
+            </div>
+            <div class="products-slider">
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>HealthMate</h3>
+                    <p class="product-type">For Individuals</p>
+                    <div class="product-description">
+                        <p>Personal health assistant providing real-time monitoring, personalized recommendations, and preventative insights</p>
+                        <ul class="product-features">
+                            <li>24/7 health monitoring</li>
+                            <li>Personalized wellness plans</li>
+                            <li>AI-powered symptom analysis</li>
+                            <li>Secure health data storage</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#contact" class="btn product-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card featured">
+                    <div class="product-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="featured-tag">Most Popular</div>
+                    <h3>HealthPro</h3>
+                    <p class="product-type">For Healthcare Professionals</p>
+                    <div class="product-description">
+                        <p>Comprehensive diagnostic assistant that streamlines clinical workflows and enhances decision-making accuracy</p>
+                        <ul class="product-features">
+                            <li>90%+ diagnostic accuracy</li>
+                            <li>Integrated medical knowledge base</li>
+                            <li>Clinical workflow optimization</li>
+                            <li>Multi-modal data integration</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#contact" class="btn product-btn">Request Demo</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Agent Tune Pro</h3>
+                    <p class="product-type">For Enterprises</p>
+                    <div class="product-description">
+                        <p>Custom AI solution development with privacy-preserving technology for enterprise datasets</p>
+                        <ul class="product-features">
+                            <li>Private data fine-tuning</li>
+                            <li>Enterprise-grade security</li>
+                            <li>Custom API integration</li>
+                            <li>Continuous model improvement</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#contact" class="btn product-btn">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+            <div class="enterprise-services">
+                <div class="service-headline">
+                    <h3>Enterprise Services</h3>
+                    <p>Tailored solutions for your business needs</p>
+                </div>
+                <div class="service-items">
+                    <div class="service-item">
+                        <i class="fas fa-comments"></i>
+                        <div class="service-details">
+                            <h4>AI Strategy Consulting</h4>
+                            <p>Expert guidance for implementing AI solutions across your organization</p>
+                        </div>
+                        <a href="#contact" class="service-link">Inquire <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <div class="service-details">
+                            <h4>Financial Analytics Suite</h4>
+                            <p>Advanced algorithmic financial statement generation and analysis</p>
+                        </div>
+                        <a href="#contact" class="service-link">Inquire <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Market Impact</h2>
+                <p>Addressing billion-dollar opportunities</p>
+            </div>
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="stat-content">
+                        <h3>Healthcare Analytics</h3>
+                        <div class="stat-number">$50B</div>
+                        <p>Market size by 2025</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 76%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-content">
+                        <h3>Financial Analytics</h3>
+                        <div class="stat-number">$11.4B</div>
+                        <p>Projected value by 2026</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 68%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-briefcase-medical"></i></div>
+                    <div class="stat-content">
+                        <h3>AI Healthcare Investment</h3>
+                        <div class="stat-number">$23B</div>
+                        <p>VC funding in 2024</p>
+                        <div class="stat-progress">
+                            <div class="progress-bar" style="width: 82%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="impact-testimonial">
+                <div class="testimonial-container">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <blockquote>Bercy AI's technology has dramatically improved our diagnostic accuracy while reducing our analysis time by 73%. Their solutions seamlessly integrated with our existing workflows, making adoption effortless for our medical team.</blockquote>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image"><i class="fas fa-user-circle"></i></div>
+                        <div class="author-details">
+                            <h4>Dr. Sarah Chen</h4>
+                            <p>Chief Manager, Leading Healthcare Institution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Leadership</h2>
+                <p>World-class expertise in AI and oral healthcare</p>
+            </div>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-details">
+                        <h3>Prof. Lequan Yu</h3>
+                        <p class="member-title">Chairman</p>
+                        <p class="member-credentials">Director of Medical-AI Lab at HKU</p>
+                        <p class="member-achievements">18,000+ academic citations</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-details">
+                        <h3>Yushi Feng</h3>
+                        <p class="member-title">Chief Executive Officer</p>
+                        <p class="member-credentials">Ph.D. student in Machine Learning at HKU</p>
+                        <p class="member-achievements">Former tech lead at renowned AI startups</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-details">
+                        <h3>Tsai Hor Chan</h3>
+                        <p class="member-title">Chief Technology Officer</p>
+                        <p class="member-credentials">Ph.D. in Machine Learning, Visiting Scholar at UPenn</p>
+                        <p class="member-achievements">Multiple patents in AI systems architecture</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .member-photo {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #6e8efb, #a777e3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1.5rem;
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                }
+                
+                .member-photo i {
+                    font-size: 3.5rem;
+                    color: white;
+                }
+                
+                .team-member {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding: 2rem;
+                    background-color: #ffffff;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .team-member:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+                }
+            </style>
+            <div class="backed-by">
+                <h3>Backed By</h3>
+                <div class="partner-logos">
+                    <div class="partner-logo"><div class="logo-placeholder">HKU School of Computing and Data Science</div></div>
+                    <div class="partner-logo"><div class="logo-placeholder">Li Ka Shing Faculty of Medicine</div></div>
+                    <div class="partner-logo"><div class="logo-placeholder">Hong Kong Science and Technology Parks</div></div>
+                    <div class="partner-logo"><div class="logo-placeholder">Queen Mary Hospital</div></div>
+                    <div class="partner-logo"><div class="logo-placeholder">Beijing Magic Medical Instruments Co., Ltd.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="section-header left-aligned">
+                        <h2>Get In Touch</h2>
+                        <p>Partner with us to transform your business</p>
+                    </div>
+                    <p class="contact-lead">Ready to experience the power of next-generation AI? Our team is standing by to discuss how our solutions can address your specific needs.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p><a href="mailto:bercyailtd@gmail.com">bercyailtd@gmail.com</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p><a href="tel:+85252647210">+852 5264 7210</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Room 226, Run Run Shaw Bldg, Pok Fu Lam, Hong Kong</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="inquiry-form" action="https://formsubmit.co/bercyailtd@gmail.com" method="POST">
+                        <!-- formsubmit.co configuration options -->
+                        <input type="hidden" name="_subject" value="New inquiry from Bercy AI website">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://bercyai.github.io#contact">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thank you for your inquiry. Our team will contact you shortly.">
+                        <input type="hidden" name="_format" value="plain">
+                        <input type="hidden" name="_honey" style="display:none">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm interested in</label>
+                            <select id="interest" name="interest">
+                                <option value="HealthMate">HealthMate</option>
+                                <option value="HealthPro">HealthPro</option>
+                                <option value="AgentTunePro">Agent Tune Pro</option>
+                                <option value="Consulting">AI Strategy Consulting</option>
+                                <option value="Partnership">Partnership Opportunities</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn primary-btn">Send Inquiry</button>
+                        </div>
+                    </form>
+                    <div id="submission-response" style="display: none;">
+                        <div class="success-message">
+                            <i class="fas fa-check-circle" style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;"></i>
+                            <h3>Thank You!</h3>
+                            <p>Your inquiry has been received. Our team will contact you shortly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>Bercy AI</h2>
+                    <p>Redefining intelligence in oral healthcare</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Solutions</h3>
+                        <ul>
+                            <li><a href="#solutions">G-Knows Platform</a></li>
+                            <li><a href="#products">Healthcare AI</a></li>
+                            <li><a href="#products">Financial AI</a></li>
+                            <li><a href="#products">Enterprise Solutions</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#team">Leadership</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bercy AI. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        window.addEventListener('load', function() {
+            if (window.location.hash === '#submission-success') {
+                document.getElementById('inquiry-form').style.display = 'none';
+                document.getElementById('submission-response').style.display = 'block';
+                
+                window.history.replaceState('', document.title, window.location.pathname);
+            }
+            
+            document.body.classList.remove('js-loading');
+        });
+        
+        document.body.classList.add('js-loading');
+    </script>
+</body>
+</html>
+
